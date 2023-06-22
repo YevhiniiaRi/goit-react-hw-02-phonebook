@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import './Contacts.css';
+import styles from './Form.module.css';
 
 class Form extends Component {
   state = {
@@ -26,8 +26,8 @@ class Form extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form onSubmit={this.handleAddContact} className="Form">
-        <label className='Label'>
+      <form onSubmit={this.handleAddContact} className={styles.formBlock}>
+        <label className={styles.labelBlock}>
           Name
           <input
             type="text"
@@ -38,9 +38,10 @@ class Form extends Component {
             pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
+            className={styles.input}
           />
         </label>
-        <label className='Label'>
+        <label className={styles.labelBlock}>
           Number
           <input
             type="tel"
@@ -51,9 +52,10 @@ class Form extends Component {
             // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses, and plus sign"
             required
+            className={styles.input}
           />
         </label>
-        <button type="submit">Add Contact</button>
+        <button type="submit" className={styles.buttonAdd}>Add Contact</button>
       </form>
     );
   }
